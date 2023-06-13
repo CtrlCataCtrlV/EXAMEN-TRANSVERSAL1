@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "7b5f2242-4e48-449d-b44d-8935f9478dea",
+		"name": "pasos del examen",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Paso 1 postman",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "cisco123!",
+						"username": "cisco"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/yang-data+json",
+						"type": "default"
+					}
+				],
+				"url": "https://192.168.152.129/restconf/"
+			},
+			"response": []
+		},
+		{
+			"name": "paso 2",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "cisco123!",
+						"username": "cisco"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/yang-data+json",
+						"type": "default"
+					}
+				],
+				"url": "https://192.168.152.129/restconf/data/ietf-interfaces:interfaces"
+			},
+			"response": []
+		},
+		{
+			"name": "put interfaces",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "cisco123!",
+						"username": "cisco"
+					}
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/yang-data+json",
+						"type": "default"
+					},
+					{
+						"key": "Accept",
+						"value": "application/yang-data+json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"ietf-interfaces:interface\": {\n    \"name\": \"Loopback44\",\n    \"description\": \"Loopback interface\",\n    \"type\": \"iana-if-type:softwareLoopback\",\n    \"enabled\": true,\n    \"ietf-ip:ipv4\": {\n      \"address\": [\n        {\n          \"ip\": \"44.44.44.44\",\n          \"netmask\": \"255.255.255.0\"\n        }\n      ]\n    }\n  }\n}"
+				},
+				"url": "https://192.168.152.129/restconf/data/ietf-interfaces:interfaces/interface=Loopback44"
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "cisco123!",
+						"username": "cisco"
+					}
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/yang-data+json",
+						"type": "default"
+					},
+					{
+						"key": "Accept",
+						"value": "application/yang-data+json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "https://192.168.152.129/restconf/data/ietf-interfaces:interfaces/interface=Loopback44"
+			},
+			"response": []
+		}
+	]
+}
